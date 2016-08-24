@@ -34,7 +34,7 @@ angular.module('aula3')
 		 /*$http({
 	        method: 'POST',
 	        data: usuario,
-	        url:"http://192.168.1.111:3000/usuarios",
+	        url:"http://ip:3000/usuarios",
 	        headers: {
 	          'Content-Type': 'application/json',
 	          'Accept': 'application/json'
