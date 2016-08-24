@@ -1,55 +1,9 @@
-<nav class="navbar navbar-default">
-	<a class="navbar-brand" href="">Cadastro de Usuário</a>
-</nav>
 <div class="container" style="margin-top: 70px;">
 
 <div class="jumbotron">
 
-<h3>Informações do novo usuário</h3>
+<h4>Selecione uma das opções acima</h4>
 <br>
-<form name="usuarioForm">
-	Nome: <input type="text" name="nome" ng-model="nome" class="form-control" ng-required="true">
-		  <span style="color: red;" ng-show="usuarioForm.nome.$invalid && usuarioForm.nome.$dirty">Você deve informar um nome para o usuário</span>
-	<br>
-	Idade: <input type="number" name="idade" ng-model="idade" class="form-control" ng-required="true">
-		   <span style="color: red;" ng-show="usuarioForm.idade.$invalid && usuarioForm.idade.$dirty">Você deve informar a idade do usuário</span>
-	<br>
-	Sexo: <br><input type="radio" value="Masculino" ng-model="sexo"> Masculino
-	<br>
-	<input type="radio" value="Feminino" ng-model="sexo"> Feminino
-	<br>
-	<br>
-	Adicionar Cartão de Crédito?
-	<br>
-	<input name="" ng-click ="mostrarCartao('Sim')" type="radio" value="Sim" ng-model="possuiCartao"> Sim&nbsp;&nbsp;
-	<input name="" ng-click ="mostrarCartao('Não')" type="radio" value="Não" ng-model="possuiCartao"> Não
-	<br>
-	<br>
-	<div ng-show = "temCartao">
-		Numero do cartão: <input type="number" name="" ng-model="numero_cartao" class="form-control" style="margin-bottom: 10px;"> 	
-	</div>
-	<button ng-click="cadastrar()" class="btn btn-default" ng-disabled="usuarioForm.$invalid">Cadastrar</button><br>
-</form>
-<table class="table" ng-if="cadastrados.length>0" style="margin-top: 20px;">
-	<thead>
-		<tr>
-			<th>Nome</th>
-			<th>Idade</th>
-			<th>Sexo</th>
-			<th>Tem cartão</th>
-			<th>Cartão de crédito</th>
-		</tr>
-	<thead>
-	<tbody>
-		<tr ng-repeat="c in cadastrados | orderBy: 'nome'">
-			<td>{{c.nome}}</td>
-			<td>{{c.idade}}</td>
-			<td>{{c.sexo}}</td>
-			<td>{{c.temCartao}}</td>
-			<td><p ng-if="c.temCartao =='Sim'">{{c.numero_cartao}}</p></td>
-		
-		</tr>
-	</tbody>
-</table>
+
 </div>
 </div>
