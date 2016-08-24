@@ -30,7 +30,23 @@ angular.module('aula3')
 		};
 
 		$rootScope.cadastrados.push(usuario);
-		
+
+		 /*$http({
+	        method: 'POST',
+	        data: usuario,
+	        url:"http://192.168.1.111:3000/usuarios",
+	        headers: {
+	          'Content-Type': 'application/json',
+	          'Accept': 'application/json'
+	        }
+	      }).then(function successCallback(response) {
+	        console.log(response)
+
+	      },
+	      function errorCallback(response) {
+	        //$.toast('Erro ao identificar localização atual.', {sticky: true, type: 'danger'});                
+	      });
+		*/
 		window.location = "#/cadastrados"
 
 	}
