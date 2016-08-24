@@ -30,26 +30,6 @@
 	</div>
 	<button ng-click="cadastrar()" class="btn btn-default" ng-disabled="usuarioForm.$invalid">Cadastrar</button><br>
 </form>
-<table class="table" ng-if="cadastrados.length>0" style="margin-top: 20px;">
-	<thead>
-		<tr>
-			<th>Nome</th>
-			<th>Idade</th>
-			<th>Sexo</th>
-			<th>Tem cartão</th>
-			<th>Cartão de crédito</th>
-		</tr>
-	<thead>
-	<tbody>
-		<tr ng-repeat="c in cadastrados | orderBy: 'nome'">
-			<td>{{c.nome}}</td>
-			<td>{{c.idade}}</td>
-			<td>{{c.sexo}}</td>
-			<td>{{c.temCartao}}</td>
-			<td><p ng-if="c.temCartao =='Sim'">{{c.numero_cartao}}</p></td>
-		
-		</tr>
-	</tbody>
-</table>
+
 </div>
 </div>

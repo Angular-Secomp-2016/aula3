@@ -8,6 +8,14 @@ app.config(['$routeProvider',function ($routeProvider) {
 	      templateUrl : 'views/home.html',
 	      controller     : 'Home'
 	   })
+	   .when('/cadastro', {
+	      templateUrl : 'views/cadastro.html',
+	      controller     : 'Cadastro'
+	   })
+	   .when('/cadastrados', {
+	      templateUrl : 'views/cadastrados.html',
+	      controller     : 'Home'
+	   })
 	   
 	   .otherwise ({ redirectTo: '/' });
 

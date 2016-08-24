@@ -2,8 +2,12 @@
 angular.module('aula3')
 .controller('Home', ['$rootScope', '$scope','$http', function($rootScope, $scope,$http){
 	
-	$scope.cadastrados = [];
+	
+}])
+
+.controller('Cadastro', ['$rootScope', '$scope','$http', function($rootScope, $scope,$http){
 	$scope.temCartao = false;
+	$rootScope.cadastrados = [];
 
 	$scope.mostrarCartao = function(mostrar){
 		if (mostrar == "Sim"){
@@ -25,9 +29,12 @@ angular.module('aula3')
 
 		};
 
-		$scope.cadastrados.push(usuario);
+		$rootScope.cadastrados.push(usuario);
 		
-		//window.location = "cadastrados.html"
+		window.location = "#/cadastrados"
 
 	}
-}]);
+}])
+.controller('Cadastrados', ['$rootScope', '$scope','$http', function($rootScope, $scope,$http){
+	
+}])
