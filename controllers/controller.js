@@ -5,7 +5,7 @@ angular.module('aula3')
 	
 }])
 
-.controller('Cadastro', ['$rootScope', '$scope','$http', function($rootScope, $scope,$http){
+.controller('Cadastro', ['$rootScope', '$scope','$http',"Requisicao", function($rootScope, $scope,$http,Requisicao){
 	$scope.temCartao = false;
 	$rootScope.cadastrados = [];
 
@@ -47,10 +47,33 @@ angular.module('aula3')
 	        //$.toast('Erro ao identificar localização atual.', {sticky: true, type: 'danger'});                
 	      });
 		*/
+		/*Requisicao.cadastrar(usuario)*/
 		window.location = "#/cadastrados"
 
 	}
 }])
-.controller('Cadastrados', ['$rootScope', '$scope','$http', function($rootScope, $scope,$http){
-	
+.controller('Cadastrados', ['$rootScope', '$scope','$http','Requisicao', function($rootScope, $scope,$http,Requisicao){
+	/*$http({
+	        method: 'GET',
+	        url:"http://ip:3000/usuarios",
+	        headers: {
+	          'Content-Type': 'application/json',
+	          'Accept': 'application/json'
+	        }
+	      }).then(function successCallback(response) {
+	        console.log(response)
+	        $rootScope.cadastrados = response.data;
+
+	      },
+	      function errorCallback(response) {
+	        //$.toast('Erro ao identificar localização atual.', {sticky: true, type: 'danger'});                
+	      });*/
+	      
+	      /*Requisicao.listar(function(res){
+	      	console.log(res)
+	      	$rootScope.cadastrados = res;
+	      },function(){
+	      	alert("Erro")
+	      })*/
+	      Requisicao.listar();
 }])

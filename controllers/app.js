@@ -14,7 +14,7 @@ app.config(['$routeProvider',function ($routeProvider) {
 	   })
 	   .when('/cadastrados', {
 	      templateUrl : 'views/cadastrados.html',
-	      controller     : 'Home'
+	      controller     : 'Cadastrados'
 	   })
 	   
 	   .otherwise ({ redirectTo: '/' });
