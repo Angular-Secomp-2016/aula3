@@ -1,6 +1,6 @@
 angular.module('aula3')
 .factory('Requisicao', ['$http','$rootScope', function($http,$rootScope) {
-   var ip = ""
+   var ip = "http://10.246.38.253:3000"
    var config = {headers: {
 	          'Content-Type': 'application/json',
 	          'Accept': 'application/json'
@@ -25,8 +25,8 @@ angular.module('aula3')
 	        //$.toast('Erro ao identificar localização atual.', {sticky: true, type: 'danger'});                
 	      });
    		},
-   		listar:function(){
-   			$http({
+   		listar:function(success,error){
+   			/*$http({
 	        method: 'GET',
 	        url:ip+"/usuarios",
 	        headers: {
@@ -40,8 +40,8 @@ angular.module('aula3')
 	      },
 	      function errorCallback(response) {
 	        //$.toast('Erro ao identificar localização atual.', {sticky: true, type: 'danger'});                
-	      });
-	      //$http.get(ip+'/usuarios', config).success(success).error(error)
+	      });*/
+	      $http.get(ip+'/usuarios', config).success(success).error(error)
 
    		}
    }

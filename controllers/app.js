@@ -16,6 +16,10 @@ app.config(['$routeProvider',function ($routeProvider) {
 	      templateUrl : 'views/cadastrados.html',
 	      controller     : 'Cadastrados'
 	   })
+	   .when('/localizar', {
+	      templateUrl : 'views/localizar.html',
+	      controller     : 'Home'
+	   })
 	   
 	   .otherwise ({ redirectTo: '/' });
 

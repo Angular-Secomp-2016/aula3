@@ -1,7 +1,28 @@
 'use strict';
 angular.module('aula3')
 .controller('Home', ['$rootScope', '$scope','$http', function($rootScope, $scope,$http){
-	
+	$scope.localizar = function(){
+		$http({
+	      method: 'GET',
+	      url:"http://maps.googleapis.com/maps/api/geocode/json?address="+$scope.latitude+","+$scope.longitude,
+	      headers: {
+	        'Content-Type': 'application/json'
+	      }
+	      }).then(function successCallback(response) {
+	        console.log(response.data);
+	        // O array de componentes deve ser salvo numa lista, pra se procurar o nome do país
+	        var listaEnderecos = response.data.results[0].address_components;
+	        // O país será procurado na lista, através do tipo que está no Json
+	        for (var i = 0; listaEnderecos.length > i; i++) {
+	          if(listaEnderecos[i].types[0] == "country"){
+	            $scope.pais = listaEnderecos[i].long_name;
+	          }
+	        }
+		         
+	      }, function errorCallback(response) {
+	          
+	      });
+	}
 	
 }])
 
@@ -29,12 +50,12 @@ angular.module('aula3')
 
 		};
 
-		$rootScope.cadastrados.push(usuario);
+		//$rootScope.cadastrados.push(usuario);
 
 		 /*$http({
 	        method: 'POST',
 	        data: usuario,
-	        url:"http://ip:3000/usuarios",
+	        url:"http://10.246.38.253:3000/usuarios",
 	        headers: {
 	          'Content-Type': 'application/json',
 	          'Accept': 'application/json'
@@ -45,9 +66,9 @@ angular.module('aula3')
 	      },
 	      function errorCallback(response) {
 	        //$.toast('Erro ao identificar localização atual.', {sticky: true, type: 'danger'});                
-	      });
-		*/
-		/*Requisicao.cadastrar(usuario)*/
+	      });*/
+		
+		Requisicao.cadastrar(usuario);
 		window.location = "#/cadastrados"
 
 	}
@@ -55,7 +76,7 @@ angular.module('aula3')
 .controller('Cadastrados', ['$rootScope', '$scope','$http','Requisicao', function($rootScope, $scope,$http,Requisicao){
 	/*$http({
 	        method: 'GET',
-	        url:"http://ip:3000/usuarios",
+	        url:"http://10.246.38.253:3000/usuarios",
 	        headers: {
 	          'Content-Type': 'application/json',
 	          'Accept': 'application/json'
@@ -69,11 +90,11 @@ angular.module('aula3')
 	        //$.toast('Erro ao identificar localização atual.', {sticky: true, type: 'danger'});                
 	      });*/
 	      
-	      /*Requisicao.listar(function(res){
+	      Requisicao.listar(function(res){
 	      	console.log(res)
 	      	$rootScope.cadastrados = res;
 	      },function(){
 	      	alert("Erro")
-	      })*/
-	      Requisicao.listar();
+	      })
+	      //Requisicao.listar();
 }])
